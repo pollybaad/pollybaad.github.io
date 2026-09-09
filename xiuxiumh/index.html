@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>秀秀漫画-秀秀漫画在线观看与阅读指南</title>
+    <meta name="description" content="秀秀漫画是一个提供热门漫画在线阅读与分享的平台，涵盖国漫、日漫、韩漫等多种类型。提供阅读推荐、分类导航、使用步骤与常见问题，为漫画爱好者打造简洁舒适的在线漫画阅读体验。">
+    <meta name="keywords" content="秀秀漫画, 漫画阅读, 在线漫画, 国漫, 日漫, 韩漫, 漫画推荐, 漫画导航">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        /* ===== 基础重置与全局变量 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        :root {
+            --primary: #ff6b6b;
+            --primary-soft: #ffe3e3;
+            --secondary: #4ecdc4;
+            --accent: #ffa62b;
+            --dark: #1e272e;
+            --text: #2d3436;
+            --muted: #636e72;
+            --light-bg: #f8f9fa;
+            --card-bg: #ffffff;
+            --border: #e9ecef;
+            --shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+            --shadow-hover: 0 12px 24px rgba(0, 0, 0, 0.12);
+            --radius: 20px;
+            --radius-sm: 12px;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background-color: #fdfbf7;
+            color: var(--text);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            max-width: 100%;
+            display: block;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== 页眉 / 导航 ===== */
+        .site-header {
+            background: var(--card-bg);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 0;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 700;
+            font-size: 1.6rem;
+            color: var(--dark);
+        }
+        .brand-icon {
+            background: var(--primary);
+            width: 42px;
+            height: 42px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 8px rgba(255, 107, 107, 0.3);
+        }
+        .brand-name span {
+            color: var(--primary);
+        }
+        .main-nav ul {
+            display: flex;
+            gap: 28px;
+            font-weight: 500;
+        }
+        .main-nav a {
+            padding: 8px 2px;
+            border-bottom: 3px solid transparent;
+            transition: 0.2s;
+            color: var(--text);
+        }
+        .main-nav a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+        .nav-search {
+            display: flex;
+            align-items: center;
+            background: var(--light-bg);
+            padding: 4px 12px;
+            border-radius: 40px;
+            border: 1px solid var(--border);
+        }
+        .nav-search input {
+            border: none;
+            background: transparent;
+            padding: 8px 6px;
+            font-size: 0.95rem;
+            width: 160px;
+            outline: none;
+        }
+        .nav-search button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            padding: 6px 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .nav-search button:hover {
+            background: #e05555;
+        }
+
+        /* ===== 首屏 hero ===== */
+        .hero {
+            background: linear-gradient(145deg, #fff7f0, #ffe9e4);
+            padding: 56px 0 64px;
+            border-radius: 0 0 40px 40px;
+            margin-bottom: 40px;
+        }
+        .hero-grid {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        .hero-content {
+            flex: 1 1 320px;
+        }
+        .hero-content h1 {
+            font-size: 2.6rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: var(--dark);
+            margin-bottom: 12px;
+        }
+        .hero-content h1 span {
+            color: var(--primary);
+            background: var(--primary-soft);
+            padding: 0 12px;
+            display: inline-block;
+            border-radius: 40px;
+            margin-right: 6px;
+        }
+        .hero-sub {
+            font-size: 1.2rem;
+            color: var(--muted);
+            margin: 16px 0 24px;
+            max-width: 540px;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            border-radius: 60px;
+            font-weight: 600;
+            transition: 0.2s;
+            border: 2px solid transparent;
+        }
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 6px 12px rgba(255, 107, 107, 0.3);
+        }
+        .btn-primary:hover {
+            background: #e05555;
+            transform: translateY(-2px);
+        }
+        .btn-outline {
+            background: transparent;
+            border-color: var(--primary);
+            color: var(--primary);
+        }
+        .btn-outline:hover {
+            background: var(--primary-soft);
+        }
+        .hero-cover {
+            flex: 0 1 360px;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-cover-card {
+            background: white;
+            padding: 18px;
+            border-radius: 32px;
+            box-shadow: var(--shadow-hover);
+            transform: rotate(2deg);
+            border: 4px solid white;
+        }
+        .hero-cover-card .mock-cover {
+            width: 220px;
+            height: 280px;
+            background: linear-gradient(135deg, #ff9a9e, #fecfef);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* ===== 分类卡片 ===== */
+        .section-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            margin: 50px 0 28px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title::before {
+            content: '';
+            width: 10px;
+            height: 32px;
+            background: var(--primary);
+            border-radius: 20px;
+        }
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+        .cat-card {
+            background: var(--card-bg);
+            padding: 22px 14px;
+            border-radius: var(--radius);
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: 0.25s;
+            border: 1px solid transparent;
+        }
+        .cat-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-soft);
+        }
+        .cat-icon {
+            font-size: 2.6rem;
+            margin-bottom: 10px;
+        }
+        .cat-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 6px;
+        }
+        .cat-card p {
+            color: var(--muted);
+            font-size: 0.9rem;
+        }
+
+        /* ===== 推荐阅读卡片 ===== */
+        .comic-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 24px;
+            margin: 20px 0 40px;
+        }
+        .comic-item {
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: 0.2s;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+        }
+        .comic-item:hover {
+            transform: scale(1.02);
+            box-shadow: var(--shadow-hover);
+        }
+        .comic-thumb {
+            height: 180px;
+            background: linear-gradient(145deg, #d4f1f4, #ffd6e8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(0,0,0,0.2);
+            font-weight: 800;
+        }
+        .comic-info {
+            padding: 14px 12px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+        .comic-info h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+        .comic-tags {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: var(--primary-soft);
+            color: #a04040;
+            padding: 2px 10px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        .comic-desc {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        /* ===== 阅读指南步骤 ===== */
+        .steps-section {
+            background: var(--light-bg);
+            padding: 40px 0;
+            border-radius: 40px;
+            margin: 40px 0;
+        }
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        .step-item {
+            background: white;
+            padding: 26px 18px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+        .step-number {
+            background: var(--secondary);
+            color: white;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 16px;
+            font-size: 1.4rem;
+        }
+        .step-item h3 {
+            margin-bottom: 8px;
+            font-size: 1.25rem;
+        }
+        .step-item p {
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-top: 20px;
+            max-width: 820px;
+        }
+        .faq-item {
+            background: white;
+            border-radius: var(--radius-sm);
+            padding: 18px 24px;
+            box-shadow: var(--shadow);
+            border-left: 6px solid var(--primary);
+        }
+        .faq-item h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+        .faq-item p {
+            color: var(--muted);
+        }
+
+        /* ===== 页脚 ===== */
+        .site-footer {
+            background: var(--dark);
+            color: #c8ced6;
+            margin-top: 60px;
+            padding: 36px 0 24px;
+            border-radius: 30px 30px 0 0;
+        }
+        .footer-grid {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 14px;
+            font-size: 1.1rem;
+        }
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+        .footer-col a:hover {
+            color: var(--primary);
+        }
+        .copyright {
+            border-top: 1px solid #3e4a52;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* ===== 响应式 ===== */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .main-nav ul {
+                flex-wrap: wrap;
+                gap: 14px;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-cover-card {
+                display: none;
+            }
+            .section-title {
+                font-size: 1.6rem;
+            }
+            .nav-search {
+                width: 100%;
+                margin-top: 8px;
+            }
+            .nav-search input {
+                flex: 1;
+                width: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 页眉 / 导航 -->
+<header class="site-header">
+    <div class="container header-inner">
+        <div class="brand">
+            <div class="brand-icon">✨</div>
+            <div class="brand-name">秀秀<span>漫画</span></div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#home">首页</a></li>
+                <li><a href="#categories">分类</a></li>
+                <li><a href="#recommend">推荐</a></li>
+                <li><a href="#guide">阅读指南</a></li>
+                <li><a href="#faq">常见问题</a></li>
+            </ul>
+        </nav>
+        <div class="nav-search">
+            <input type="search" placeholder="搜索漫画..." aria-label="搜索漫画">
+            <button type="button">搜索</button>
+        </div>
+    </div>
+</header>
+
+<main id="home">
+    <!-- 首屏区域 -->
+    <section class="hero">
+        <div class="container hero-grid">
+            <div class="hero-content">
+                <h1><span>秀秀漫画</span> 轻松阅读世界</h1>
+                <p class="hero-sub">发现国漫、日漫、韩漫精品，每日更新，清爽无干扰的阅读空间。秀秀漫画带你进入缤纷的二次元世界。</p>
+                <div class="hero-actions">
+                    <a href="#recommend" class="btn btn-primary">开始阅读</a>
+                    <a href="#categories" class="btn btn-outline">浏览分类</a>
+                </div>
+            </div>
+            <div class="hero-cover">
+                <div class="hero-cover-card">
+                    <div class="mock-cover">📚 秀秀</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分类导航卡片 -->
+    <section id="categories" class="container">
+        <h2 class="section-title">漫画分类 · 找到你的最爱</h2>
+        <div class="category-grid">
+            <div class="cat-card">
+                <div class="cat-icon">🇨🇳</div>
+                <h3>国漫</h3>
+                <p>热血、古风、都市</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🗾</div>
+                <h3>日漫</h3>
+                <p>少年、少女、奇幻</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🇰🇷</div>
+                <h3>韩漫</h3>
+                <p>恋爱、系统、悬疑</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">🌌</div>
+                <h3>玄幻</h3>
+                <p>修真、异世界</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">💕</div>
+                <h3>恋爱</h3>
+                <p>甜宠、虐心、校园</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">⚡</div>
+                <h3>热血</h3>
+                <p>战斗、冒险、王道</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门漫画推荐 -->
+    <section id="recommend" class="container">
+        <h2 class="section-title">热门精选 · 秀秀读者都在看</h2>
+        <div class="comic-grid">
+            <article class="comic-item">
+                <div class="comic-thumb">🌿</div>
+                <div class="comic-info">
+                    <h3>灵笼编年史</h3>
+                    <div class="comic-tags"><span class="tag">国漫</span><span class="tag">科幻</span></div>
+                    <p class="comic-desc">废土世界的人性探索</p>
+                </div>
+            </article>
+            <article class="comic-item">
+                <div class="comic-thumb">🍥</div>
+                <div class="comic-info">
+                    <h3>海贼王之旅</h3>
+                    <div class="comic-tags"><span class="tag">日漫</span><span class="tag">冒险</span></div>
+                    <p class="comic-desc">伟大航路的冒险</p>
+                </div>
+            </article>
+            <article class="comic-item">
+                <div class="comic-thumb">🌙</div>
+                <div class="comic-info">
+                    <h3>月桂之约</h3>
+                    <div class="comic-tags"><span class="tag">韩漫</span><span class="tag">奇幻</span></div>
+                    <p class="comic-desc">契约婚姻的浪漫</p>
+                </div>
+            </article>
+            <article class="comic-item">
+                <div class="comic-thumb">⚔️</div>
+                <div class="comic-info">
+                    <h3>剑道独尊</h3>
+                    <div class="comic-tags"><span class="tag">玄幻</span><span class="tag">热血</span></div>
+                    <p class="comic-desc">一剑破万法</p>
+                </div>
+            </article>
+            <article class="comic-item">
+                <div class="comic-thumb">🎭</div>
+                <div class="comic-info">
+                    <h3>伪装恋人</h3>
+                    <div class="comic-tags"><span class="tag">恋爱</span><span class="tag">校园</span></div>
+                    <p class="comic-desc">假戏真做的甜蜜</p>
+                </div>
+            </article>
+            <article class="comic-item">
+                <div class="comic-thumb">🌀</div>
+                <div class="comic-info">
+                    <h3>东京食种</h3>
+                    <div class="comic-tags"><span class="tag">日漫</span><span class="tag">暗黑</span></div>
+                    <p class="comic-desc">喰种与人类</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <!-- 阅读指南 -->
+    <section id="guide" class="container steps-section">
+        <h2 class="section-title" style="margin-top:0;">秀秀漫画 · 阅读指南</h2>
+        <div class="steps-grid">
+            <div class="step-item">
+                <div class="step-number">1</div>
+                <h3>浏览/搜索</h3>
+                <p>通过分类或关键词搜索找到你想看的漫画。</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">2</div>
+                <h3>进入详情</h3>
+                <p>点击封面，查看漫画简介、连载状态与目录。</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">3</div>
+                <h3>开始阅读</h3>
+                <p>进入阅读模式，可切换章节、调整亮度。</p>
+            </div>
+            <div class="step-item">
+                <div class="step-number">4</div>
+                <h3>收藏追更</h3>
+                <p>注册后可收藏漫画，更新时第一时间提醒。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 优势/特色简块 -->
+    <div class="container" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:space-between;">
+        <div style="flex:1; min-width:200px; background: white; padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow);">
+            <h3 style="display:flex; align-items:center; gap:10px;">📖 海量资源</h3>
+            <p style="color:var(--muted)">收录数千部漫画，涵盖各大热门IP与新人作品。</p>
+        </div>
+        <div style="flex:1; min-width:200px; background: white; padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow);">
+            <h3 style="display:flex; align-items:center; gap:10px;">⚡ 高速阅读</h3>
+            <p style="color:var(--muted)">图片压缩适配，翻页流畅，省流模式可选。</p>
+        </div>
+        <div style="flex:1; min-width:200px; background: white; padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow);">
+            <h3 style="display:flex; align-items:center; gap:10px;">🔔 更新提醒</h3>
+            <p style="color:var(--muted)">订阅你喜欢的漫画，新章节不再错过。</p>
+        </div>
+    </div>
+
+    <!-- FAQ区域 -->
+    <section id="faq" class="container">
+        <h2 class="section-title">常见问题 · 帮您解惑</h2>
+        <div class="faq-list">
+            <div class="faq-item">
+                <h3>❓ 秀秀漫画需要注册吗？</h3>
+                <p>浏览大部分漫画无需注册，但注册后可同步收藏、评论并开启更新提醒。</p>
+            </div>
+            <div class="faq-item">
+                <h3>❓ 手机端阅读体验如何？</h3>
+                <p>页面完全适配手机与平板，支持翻页模式、竖屏阅读，并提供夜间模式。</p>
+            </div>
+            <div class="faq-item">
+                <h3>❓ 漫画多久更新一次？</h3>
+                <p>热门作品通常随原作方同步更新，部分汉化组作品会尽快发布，请关注具体漫画页。</p>
+            </div>
+            <div class="faq-item">
+                <h3>❓ 如何反馈漫画问题或建议？</h3>
+                <p>可通过页面底部“意见反馈”入口或联系客服，我们会及时处理。</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>秀秀漫画</h4>
+                <p style="max-width:260px;">一个专注漫画阅读的轻量平台，提供多品类漫画与清爽体验。</p>
+            </div>
+            <div class="footer-col">
+                <h4>分类</h4>
+                <ul>
+                    <li><a href="#">国漫</a></li>
+                    <li><a href="#">日漫</a></li>
+                    <li><a href="#">韩漫</a></li>
+                    <li><a href="#">恋爱</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>支持</h4>
+                <ul>
+                    <li><a href="#">帮助中心</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">更新日志</a></li>
+                    <li><a href="#">用户协议</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于</h4>
+                <ul>
+                    <li><a href="#">关于我们</a></li>
+                    <li><a href="#">加入我们</a></li>
+                    <li><a href="#">联系邮箱</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            © 2025 秀秀漫画 · 享受阅读的乐趣 · 本站内容仅供展示
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
