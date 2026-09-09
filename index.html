@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>少儿漫画-少儿漫画大全与阅读指南</title>
+    <meta name="description" content="少儿漫画精选推荐，涵盖启蒙教育、校园成长、科普冒险等多类型，帮助家长为孩子挑选健康有益的漫画读物，提供阅读指导与常见问题解答。">
+    <meta name="keywords" content="少儿漫画,儿童漫画,小学生漫画,漫画推荐,少儿漫画阅读,亲子阅读,漫画书单">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            background-color: #f8f9fa;
+            color: #2d3436;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部 */
+        .site-header {
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
+            padding: 16px 0;
+            box-shadow: 0 4px 20px rgba(108, 92, 231, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .brand-icon {
+            width: 44px;
+            height: 44px;
+            background-color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .brand-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: rgba(255,255,255,0.9);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            padding: 6px 0;
+            transition: all 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #fff;
+            border-bottom-color: #fff;
+        }
+
+        /* 首屏 */
+        .hero {
+            background: linear-gradient(180deg, #eef2ff 0%, #f8f9fa 100%);
+            padding: 60px 0 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            font-weight: 800;
+            color: #2d3436;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero .subtitle {
+            font-size: 18px;
+            color: #636e72;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .hero-tags span {
+            background: #fff;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #6c5ce7;
+            box-shadow: 0 2px 8px rgba(108, 92, 231, 0.1);
+            border: 1px solid #e0dcff;
+        }
+
+        /* 板块 */
+        .section {
+            padding: 50px 0;
+        }
+
+        .section-title {
+            font-size: 30px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 12px;
+            color: #2d3436;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #636e72;
+            font-size: 16px;
+            margin-bottom: 40px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #fff;
+            border-radius: 16px;
+            padding: 28px 24px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #f0f0f0;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 36px;
+            margin-bottom: 16px;
+        }
+
+        .card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #2d3436;
+        }
+
+        .card p {
+            font-size: 15px;
+            color: #636e72;
+            margin-bottom: 16px;
+        }
+
+        .card .tag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .card .tag-list span {
+            background: #f0edff;
+            color: #6c5ce7;
+            font-size: 13px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 500;
+        }
+
+        /* 精选推荐 */
+        .recommend-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .recommend-item {
+            background: #fff;
+            border-radius: 14px;
+            padding: 24px;
+            border-left: 5px solid #6c5ce7;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+            transition: transform 0.2s;
+        }
+
+        .recommend-item:hover {
+            transform: scale(1.01);
+        }
+
+        .recommend-item h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .recommend-item .meta {
+            font-size: 14px;
+            color: #6c5ce7;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .recommend-item p {
+            font-size: 15px;
+            color: #555;
+        }
+
+        /* 步骤 */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            counter-reset: step;
+        }
+
+        .step-box {
+            background: #fff;
+            border-radius: 14px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            position: relative;
+        }
+
+        .step-box::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #6c5ce7;
+            color: #fff;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .step-box h3 {
+            font-size: 18px;
+            margin: 12px 0 10px;
+        }
+
+        .step-box p {
+            font-size: 14px;
+            color: #636e72;
+        }
+
+        /* 注意事项 */
+        .notice-list {
+            background: #fff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+        }
+
+        .notice-list ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .notice-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 16px;
+        }
+
+        .notice-list li:last-child {
+            border-bottom: none;
+        }
+
+        .notice-list .icon {
+            color: #e17055;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* FAQ */
+        .faq-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px 24px;
+            font-weight: 600;
+            font-size: 17px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fafafa;
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: #f0edff;
+        }
+
+        .faq-answer {
+            padding: 0 24px 20px;
+            color: #555;
+            font-size: 15px;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question .arrow {
+            transform: rotate(180deg);
+        }
+
+        .arrow {
+            transition: transform 0.3s;
+            font-size: 14px;
+            color: #6c5ce7;
+        }
+
+        /* 页脚 */
+        .site-footer {
+            background: #2d3436;
+            color: #dfe6e9;
+            padding: 40px 0 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-about {
+            max-width: 360px;
+        }
+
+        .footer-about h3 {
+            color: #fff;
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .footer-about p {
+            font-size: 14px;
+            color: #b2bec3;
+        }
+
+        .footer-links h4 {
+            color: #fff;
+            margin-bottom: 12px;
+        }
+
+        .footer-links ul {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 8px;
+        }
+
+        .footer-links a {
+            color: #b2bec3;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: #a29bfe;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #636e72;
+            padding-top: 20px;
+            font-size: 14px;
+            color: #b2bec3;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .hero .subtitle {
+                font-size: 16px;
+            }
+
+            .header-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                justify-content: center;
+                gap: 16px;
+            }
+
+            .nav-links a {
+                font-size: 14px;
+            }
+
+            .section {
+                padding: 30px 0;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+
+            .recommend-list {
+                grid-template-columns: 1fr;
+            }
+
+            .card-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 14px;
+            }
+
+            .hero {
+                padding: 40px 0 30px;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .brand-name {
+                font-size: 20px;
+            }
+
+            .notice-list {
+                padding: 20px;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#" class="brand">
+                <span class="brand-icon">📚</span>
+                <span class="brand-name">少儿漫画</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#types">漫画分类</a></li>
+                    <li><a href="#recommend">精选推荐</a></li>
+                    <li><a href="#guide">阅读指导</a></li>
+                    <li><a href="#notice">注意事项</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- 首屏 -->
+        <section class="hero">
+            <div class="container">
+                <h1>少儿漫画</h1>
+                <p class="subtitle">为孩子挑选健康、有趣、有营养的漫画读物，让阅读成为快乐成长的伙伴。这里为你提供系统的少儿漫画推荐与阅读指导。</p>
+                <div class="hero-tags">
+                    <span>🎨 启蒙认知</span>
+                    <span>🏫 校园成长</span>
+                    <span>🚀 科普冒险</span>
+                    <span>💡 思维训练</span>
+                    <span>❤️ 情感教育</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 漫画分类 -->
+        <section class="section" id="types">
+            <div class="container">
+                <h2 class="section-title">少儿漫画的主要类型</h2>
+                <p class="section-subtitle">不同类型的少儿漫画适合不同年龄段和兴趣的孩子</p>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-icon">🎨</div>
+                        <h3>启蒙认知类</h3>
+                        <p>适合2-6岁幼儿，通过生动画面和简单故事帮助孩子认识颜色、数字、形状和日常事物，培养基础认知能力。</p>
+                        <div class="tag-list"><span>2-6岁</span><span>基础认知</span><span>亲子共读</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🏫</div>
+                        <h3>校园成长类</h3>
+                        <p>围绕校园生活、同学友谊、师生关系展开，帮助小学生适应集体生活，学习与人相处的技巧。</p>
+                        <div class="tag-list"><span>6-12岁</span><span>社交技能</span><span>情绪管理</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">🚀</div>
+                        <h3>科普冒险类</h3>
+                        <p>将科学知识融入精彩的冒险故事中，激发孩子对自然、宇宙、历史的好奇心和探索欲。</p>
+                        <div class="tag-list"><span>8岁以上</span><span>科学启蒙</span><span>探索精神</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">💡</div>
+                        <h3>思维训练类</h3>
+                        <p>通过谜题、推理和逻辑游戏形式的漫画，锻炼孩子的观察力、分析力和解决问题的能力。</p>
+                        <div class="tag-list"><span>7-14岁</span><span>逻辑思维</span><span>专注力</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">❤️</div>
+                        <h3>情感教育类</h3>
+                        <p>关注孩子的内心世界，讲述关于亲情、友情、勇气和成长的故事，培养共情能力和积极心态。</p>
+                        <div class="tag-list"><span>全年龄段</span><span>心理健康</span><span>品格培养</span></div>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📖</div>
+                        <h3>经典名著改编</h3>
+                        <p>将中外文学名著以漫画形式呈现，降低阅读门槛，让孩子从小接触经典文学的魅力。</p>
+                        <div class="tag-list"><span>8岁以上</span><span>文学素养</span><span>历史人文</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 精选推荐 -->
+        <section class="section" id="recommend" style="background: #f0edff33;">
+            <div class="container">
+                <h2 class="section-title">精选少儿漫画推荐</h2>
+                <p class="section-subtitle">以下推荐基于教育价值、内容质量和儿童接受度综合考量</p>
+                <div class="recommend-list">
+                    <article class="recommend-item">
+                        <h3>《神奇校车》系列</h3>
+                        <div class="meta">科普冒险 · 适合6-12岁</div>
+                        <p>卷毛老师带着同学们乘坐可以变形的神奇校车，进入人体、地球、太阳系甚至微观世界，在惊险刺激的旅程中学习科学知识。画面信息丰富，知识点密集但生动有趣。</p>
+                    </article>
+                    <article class="recommend-item">
+                        <h3>《父与子》全集</h3>
+                        <div class="meta">亲子情感 · 适合全年龄段</div>
+                        <p>德国漫画大师卜劳恩的经典之作，通过一对父子的日常生活趣事，传递了深厚的亲情与乐观精神。幽默温暖，非常适合亲子共读。</p>
+                    </article>
+                    <article class="recommend-item">
+                        <h3>《大中华寻宝记》</h3>
+                        <div class="meta">人文地理 · 适合7-14岁</div>
+                        <p>以寻宝探险为线索，带领小读者走遍中国各省，了解当地的历史文化、风土人情和地理特色。画面精美，故事节奏紧凑。</p>
+                    </article>
+                    <article class="recommend-item">
+                        <h3>《丁丁历险记》</h3>
+                        <div class="meta">冒险故事 · 适合8岁以上</div>
+                        <p>比利时经典漫画，记者丁丁和爱犬白雪的环球冒险故事，情节精彩，充满正义感和勇气，是几代人喜爱的经典作品。</p>
+                    </article>
+                    <article class="recommend-item">
+                        <h3>《半小时漫画中国史》</h3>
+                        <div class="meta">历史知识 · 适合10岁以上</div>
+                        <p>用幽默的漫画和段子讲述中国历史脉络，让孩子在轻松阅读中建立历史框架感。适合作为历史学习的入门读物。</p>
+                    </article>
+                    <article class="recommend-item">
+                        <h3>《儿童情绪管理绘本漫画》</h3>
+                        <div class="meta">情绪认知 · 适合4-10岁</div>
+                        <p>通过具体的生活场景故事，帮助孩子识别和表达自己的情绪，学习处理生气、害怕、害羞等情绪的方法，画面温暖治愈。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- 阅读指导 -->
+        <section class="section" id="guide">
+            <div class="container">
+                <h2 class="section-title">少儿漫画阅读指导</h2>
+                <p class="section-subtitle">科学引导孩子阅读漫画，让兴趣与成长并行</p>
+                <div class="steps">
+                    <div class="step-box">
+                        <h3>按年龄选书</h3>
+                        <p>低龄儿童以图画为主、文字为辅；小学中低年级选择图文均衡的漫画；高年级可逐渐过渡到文字量更大的作品。</p>
+                    </div>
+                    <div class="step-box">
+                        <h3>亲子共读</h3>
+                        <p>陪孩子一起阅读，讨论故事中的情节和人物，引导孩子思考，把漫画变成亲子交流的桥梁。</p>
+                    </div>
+                    <div class="step-box">
+                        <h3>控制阅读时间</h3>
+                        <p>合理安排阅读时长，注意用眼卫生，每天20-40分钟为宜，避免长时间连续阅读。</p>
+                    </div>
+                    <div class="step-box">
+                        <h3>结合其他阅读</h3>
+                        <p>漫画与文字书、绘本、科普读物搭配阅读，拓宽阅读面，培养多样化的阅读兴趣。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 注意事项 -->
+        <section class="section" id="notice" style="background: #fff;">
+            <div class="container">
+                <h2 class="section-title">为孩子选漫画的注意事项</h2>
+                <p class="section-subtitle">质量把关是家长的重要责任</p>
+                <div class="notice-list">
+                    <ul>
+                        <li><span class="icon">⚠️</span> 注意内容适宜性：避免含有暴力、恐怖、低俗或不适合儿童年龄的情节，先翻阅再给孩子看。</li>
+                        <li><span class="icon">⚠️</span> 关注出版社口碑：选择正规出版社和知名童书品牌的出版物，印刷质量和内容审核更有保障。</li>
+                        <li><span class="icon">⚠️</span> 警惕不良阅读习惯：防止孩子只翻图不看字、快速翻页不思考，引导细读和观察画面细节。</li>
+                        <li><span class="icon">⚠️</span> 尊重孩子兴趣：在健康范围内尊重孩子的喜好，兴趣是最好的老师，可以结合兴趣拓展相关主题。</li>
+                        <li><span class="icon">⚠️</span> 注意用眼健康：保持适当阅读距离和光线，定期休息，保护孩子视力。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="section" id="faq">
+            <div class="container">
+                <h2 class="section-title">关于少儿漫画的常见问题</h2>
+                <p class="section-subtitle">家长们最关心的问题解答</p>
+                <div class="faq-list">
+                    <div class="faq-item active">
+                        <div class="faq-question">孩子看漫画会影响学习吗？<span class="arrow">▼</span></div>
+                        <div class="faq-answer">适量阅读优质漫画不会影响学习，反而能提升孩子的阅读兴趣和图文理解能力。关键在于内容选择和阅读时间管理。家长可以和孩子约定阅读时间，并选择兼具趣味与教育意义的漫画作品。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">漫画和文字书怎么平衡？<span class="arrow">▼</span></div>
+                        <div class="faq-answer">漫画可以作为阅读的起点和补充，但不能完全替代文字书。建议根据孩子的年龄和阅读水平，逐步增加文字书比例。小学低年级可以漫画为主，到中高年级逐渐过渡到桥梁书和章节书。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">几岁开始看漫画比较合适？<span class="arrow">▼</span></div>
+                        <div class="faq-answer">一般3-4岁可以开始接触图画为主的漫画绘本，6岁左右可以阅读简单的连环画，8岁以上可以阅读情节较复杂的漫画作品。具体还要看孩子的阅读能力和兴趣。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">如何判断一本漫画是否适合孩子？<span class="arrow">▼</span></div>
+                        <div class="faq-answer">先看出版社和适读年龄标注，再翻阅内容检查是否有不适合的画面和文字。可以关注教育机构和阅读推广人的推荐书单，也可以带孩子去书店现场翻阅，让孩子自己选择感兴趣的内容。</div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">国产少儿漫画和引进漫画怎么选？<span class="arrow">▼</span></div>
+                        <div class="faq-answer">两者各有优势。国产漫画更贴近国内孩子的文化背景和生活经验，引进漫画则能带来多元的文化视角。建议两者搭配阅读，拓宽孩子的视野，同时增强文化认同感。</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <h3>关于少儿漫画</h3>
+                    <p>我们致力于为家长和孩子提供优质的少儿漫画阅读指导，帮助孩子在健康快乐的阅读中成长。内容持续更新，欢迎收藏关注。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#types">漫画分类</a></li>
+                        <li><a href="#recommend">精选推荐</a></li>
+                        <li><a href="#guide">阅读指导</a></li>
+                        <li><a href="#notice">注意事项</a></li>
+                        <li><a href="#faq">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>热门主题</h4>
+                    <ul>
+                        <li><a href="#recommend">科普漫画</a></li>
+                        <li><a href="#recommend">成长故事</a></li>
+                        <li><a href="#recommend">历史漫画</a></li>
+                        <li><a href="#recommend">亲子共读</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 少儿漫画阅读指南 · 让每个孩子爱上阅读</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ 手风琴效果
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                // 关闭所有
+                document.querySelectorAll('.faq-item').forEach(function(i) {
+                    i.classList.remove('active');
+                });
+                // 如果之前不是active状态，则打开当前项
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+                                                                   </html>
